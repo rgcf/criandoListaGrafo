@@ -84,7 +84,7 @@ void imprimeListaPrincipal (noListaPrincipal *lp)
     while(lp){
         printf("\t%d\t", lp.noAtual);
     	printf("\n");
-        lp = lp->noAtual;
+        lp = lp.proxNo;
 		numElem++;
     }
     if(!elementos)
