@@ -14,11 +14,11 @@ typedef struct noAdj
 typedef struct noListaPrincipal 
 {	
 	int noAtual;
-	struct no *proxNo; //ponteiro para o próximo nó da lista 
+	struct noListaPrincipal *proxNo; //ponteiro para o próximo nó da lista 
 	struct noAdj *adj; //lista de nós adjacentes  
 }noListaPrincipal;
 
-
+noListaPrincipal *grafoAuxLA;
 
 //Identificando as funções
 noListaPrincipal* criarListaGrafo(void);
@@ -27,7 +27,7 @@ noAdj* criarListaAdj(void);
 
 noListaPrincipal* inserirNo(noListaPrincipal* lp, int noAtual);
 
-noAdj* inserirListaAdj(noAdj* la, int noBase, int noConecto, float peso);
+noAdj* inserirListaAdj(noAdj* la, noListaPrincipal *lp, int noBase, int noConecto, float peso);
 
 int numeroDeVertices(noListaPrincipal *lp);
 

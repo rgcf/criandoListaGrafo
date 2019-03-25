@@ -3,7 +3,7 @@
 #include "lista.h"
 
 
-int main
+int main()
 {   
     unsigned int numNos, numAdj, j, i = 1;
 	system("clear");
@@ -16,6 +16,20 @@ int main
 
     grafoPrincipal = criarListaGrafo();
     
+    inserirNo(grafoPrincipal, 1);
+    printf("No inserido");
+    inserirNo(grafoPrincipal, 2);
+    printf("No inserido");
+    inserirNo(grafoPrincipal, 3);
+    printf("No inserido");
+    getchar();
+
+    grafoAux = grafoAuxLA = grafoPrincipal;
+
+    grafoAuxLA->adj = inserirListaAdj(grafoAux->adj, grafoAux, 1, 2, 1.0);
+
+    getchar();
+
 
     return 0;
 }
