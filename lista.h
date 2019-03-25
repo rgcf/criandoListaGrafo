@@ -33,4 +33,10 @@ int numeroDeVertices(noListaPrincipal *lp);
 
 noListaPrincipal* buscaVertice(noListaPrincipal* lp, int vertice);
 
+void imprimeListaPrincipal(noListaPrincipal *lp);
+
+void imprimeListaAdjVertice(int vertice);
+
+void imprimeListaAdjVertAtual(noAdj *la);
+
 #endif

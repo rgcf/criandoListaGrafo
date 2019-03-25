@@ -6,7 +6,6 @@
     Última atualização: 07/03/2019
 */
 
-
 //--------------------------INCLUSÃO DE BIBLIOTECAS---------------------------//
 #include <stdio.h>
 #include <stdlib.h>
@@ -50,18 +49,17 @@ noAdj *inserirListaAdj(noAdj *la, noListaPrincipal *lp, int noBase, int noConect
         novaListaAdj->pesoEntreOsNos = peso;
         novaListaAdj->proxNoAdj = la;
         return novaListaAdj;
-        
     }
     else
         printf("Vertice nao encontrado!");
-  
 }
 
 //contando o numero de vertices
 int numeroDeVertices(noListaPrincipal *lp)
 {
     int numVertices = 0;
-    while(lp){
+    while (lp)
+    {
         numVertices++;
         lp = lp->proxNo;
     }
@@ -69,13 +67,15 @@ int numeroDeVertices(noListaPrincipal *lp)
 }
 
 //buscar elementos na lista
-noListaPrincipal* buscaVertice(noListaPrincipal* lp, int vertice)
+noListaPrincipal *buscaVertice(noListaPrincipal *lp, int vertice)
 {
-    
-    noListaPrincipal *busca;
-    for(busca = lp; busca != NULL; busca = busca->proxNo)
-        if (busca->noAtual == vertice) 
+
+    noListaPrincipal *busca = lp;
+    printf("\nBuscando no.\n");
+    for (busca; busca != NULL; busca = busca->proxNo)
+        if (busca->noAtual == vertice)
             return busca;
+    printf("\nNo nao localizado!!!");
     return NULL;
 }
 
@@ -84,16 +84,56 @@ void imprimeListaPrincipal(noListaPrincipal *lp)
     int elementos = 0;
     printf("\n");
     printf("Vertices:");
-    while(lp){
+    printf("\n");
+
+    while (lp)
+    {
         printf("\t%d\t", lp->noAtual);
-    	printf("\n");
+        printf("\n");
         lp = lp->proxNo;
-		elementos++;
+        elementos++;
     }
-    if(!elementos)
+    if (!elementos)
         printf("Vazia!");
     printf("\n");
 }
 
+void imprimeListaAdjVertice(int vertice)
+{
+    noListaPrincipal *lp = buscaVertice(grafoAuxLA, vertice);
+
+
+    noAdj *la = lp->adj;
+    int elementos = 0;
+    printf("\n");
+    printf("Vertices:");
+    while (la)
+    {
+        printf("\tno %d - peso %f\t", la->noAdjacente, la->pesoEntreOsNos);
+        printf("\n");
+        la = la->proxNoAdj;
+        elementos++;
+    }
+    if (!elementos)
+        printf("Nenhum vertice localizado!");
+    printf("\n");
+}
+
+void imprimeListaAdjVertAtual(noAdj *la)
+{
+    int elementos = 0;
+    printf("\n");
+    printf("Vertices:");
+    while (la)
+    {
+        printf("\tno %d - peso %f\t", la->noAdjacente, la->pesoEntreOsNos);
+        printf("\n");
+        la = la->proxNoAdj;
+        elementos++;
+    }
+    if (!elementos)
+        printf("Nenhum vertice localizado!");
+    printf("\n");
+}
 
 //----------------------------------------------------------------------------//
