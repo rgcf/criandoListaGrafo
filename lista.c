@@ -37,7 +37,7 @@ noListaPrincipal *inserirNo(noListaPrincipal *lp, int noAtual)
 }
 
 //Nova lista adjacente elemento na Lista Principal
-noAdj *inserirListaAdj(noAdj *la, noListaPrincipal *lp, int noBase, int noConecto, float peso)
+noAdj *inserirListaAdj(noListaPrincipal *lp, int noBase, int noConecto, float peso)
 {
     grafoAuxLA = buscaVertice(lp, noBase);
     if (grafoAuxLA)
@@ -46,7 +46,7 @@ noAdj *inserirListaAdj(noAdj *la, noListaPrincipal *lp, int noBase, int noConect
         noAdj *novaAresta = (noAdj *)malloc(sizeof(noAdj));
         novaAresta->noAdjacente = noConecto;
         novaAresta->pesoEntreOsNos = peso;
-        novaAresta->proxNoAdj = la;
+        novaAresta->proxNoAdj = grafoAuxLA->adj;
         grafoAuxLA->adj = novaAresta;
         return;
     }
