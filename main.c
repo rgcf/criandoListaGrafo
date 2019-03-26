@@ -14,36 +14,44 @@ int main()
     noAdj *listaAdj;                             //cria ponteiros para a lista adjacente
 
     grafoPrincipal = criarListaGrafo();
-    while(j < numNos){
-        grafoPrincipal = inserirNo(grafoPrincipal, 1);
-        i++;
+
+    while(j <= numNos){
+        grafoPrincipal = inserirNo(grafoPrincipal, j);
+        printf("\nForam inseridos %d vertices no grafo", j);
+        j++;
+
     }
-    printf("\nForam inseridos %d vertices no grafo", i);
+    
     getchar();
     grafoAux = grafoAuxLA = grafoPrincipal;
 
     getchar();
 
     imprimeListaPrincipal(grafoAux);
-
     getchar();
-    j = i = 0;
+
+    i = 0;
     srand(numNos);
     while (i < numNos)
     {
+        j=0;
         while (j < 3)
         {
-            inserirListaAdj(grafoAux->adj, grafoAux, numNos, (1 + rand())%numNos, (float)(j + numNos * 2));
+            grafoAux->adj = inserirListaAdj(grafoAuxLA, i, (1 + rand())%numNos, (float)(j + numNos * 2)); 
+            printf("No adjacente inserido %d %d %f\n", grafoAux->noAtual, grafoAux->adj->noAdjacente, grafoAux->adj->pesoEntreOsNos);
+            getchar();
             j++;
         }
+        printf("inseridas listas do vertice");
+        getchar();
         grafoAux = grafoAux->proxNo;
         i++;
     }
 
-    printf("No adjacente inserido\n");
+    
 
     getchar();
-
+    grafoAux = grafoPrincipal;
     imprimeListaAdjVertAtual(grafoAux->adj);
     printf("teste enviando a lista adj");
 

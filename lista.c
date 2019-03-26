@@ -39,16 +39,19 @@ noListaPrincipal *inserirNo(noListaPrincipal *lp, int noAtual)
 //Nova lista adjacente elemento na Lista Principal
 noAdj *inserirListaAdj(noListaPrincipal *lp, int noBase, int noConecto, float peso)
 {
-    grafoAuxLA = buscaVertice(lp, noBase);
-    if (grafoAuxLA)
+    lp = buscaVertice(lp, noBase);
+    printf("vertice encontrado");
+    if (lp)
     {
+        printf("entrou no if do inserir lista adj");
+        getchar();
         //verificando a posição do ponteiro da lista principal
         noAdj *novaAresta = (noAdj *)malloc(sizeof(noAdj));
         novaAresta->noAdjacente = noConecto;
         novaAresta->pesoEntreOsNos = peso;
         novaAresta->proxNoAdj = grafoAuxLA->adj;
-        grafoAuxLA->adj = novaAresta;
-        return;
+        return novaAresta;
+
     }
     else
         printf("Vertice nao encontrado!");
@@ -71,7 +74,7 @@ noListaPrincipal *buscaVertice(noListaPrincipal *lp, int vertice)
 {
 
     noListaPrincipal *busca = lp;
-    printf("\nBuscando no.\n");
+    printf("\nBuscando no %d, a partir de %d.\n", vertice, busca->noAtual);
     for (busca; busca != NULL; busca = busca->proxNo)
         if (busca->noAtual == vertice)
             return busca;
