@@ -27,13 +27,19 @@ int main()
     imprimeListaPrincipal(grafoAux);
 
     getchar();
-    j = 0;
-    while(j<3){
-        inserirListaAdj(grafoAux->adj, grafoAux, 1, 2, (float)j+1.0);
-        j++;
+    j = i = 0;
+    srand(numNos);
+    while (i < numNos)
+    {
+        while (j < 3)
+        {
+            inserirListaAdj(grafoAux->adj, grafoAux, numNos, (1 + rand())%numNos, (float)(j + numNos * 2));
+            j++;
+        }
+        grafoAux = grafoAux->proxNo;
+        i++;
     }
-    
-   
+
     printf("No adjacente inserido\n");
 
     getchar();
