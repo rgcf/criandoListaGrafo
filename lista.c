@@ -139,6 +139,16 @@ void imprimeListaAdjVertAtual(noAdj *la)
     printf("\n");
 }
 
+noListaPrincipal *removeVertice(noListaPrincipal *lp, int vertice)
+{
+    noListaPrincipal *aux = buscaVertice(lp, vertice);
+   
+    if (aux) 
+    {
+
+    }
+    
+}
 
 
 //----------------------------------------------------------------------------//

@@ -48,29 +48,9 @@ int main()
         i++;
     }
 
-    
-
-    getchar();
-    grafoAux = grafoPrincipal;
-    imprimeListaAdjVertAtual(grafoAux->adj);
-    printf("teste enviando a lista adj");
-
-    getchar();
-
-   
-
-    imprimeListaAdjVertice(3);
-    printf("por vertice 3");
-
     getchar();
 
 
-    imprimeListaPrincipal(grafoAux);
-    printf("Imprimiu grafoAux???");
-    getchar();
-    imprimeListaAdjVertice(2);
-    printf("por vertice 2");
-    getchar();
 
     
 
