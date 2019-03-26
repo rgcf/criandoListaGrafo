@@ -3,7 +3,6 @@
     Professor: Carlos Jones Rebello Junior
     Disciplina: Teoria dos Grafos
     Engenharia da Controle e Automação - Ifes campus Linhares
-    Última atualização: 07/03/2019
 */
 
 //--------------------------INCLUSÃO DE BIBLIOTECAS---------------------------//
@@ -44,11 +43,12 @@ noAdj *inserirListaAdj(noAdj *la, noListaPrincipal *lp, int noBase, int noConect
     if (grafoAuxLA)
     {
         //verificando a posição do ponteiro da lista principal
-        noAdj *novaListaAdj = (noAdj *)malloc(sizeof(noAdj));
-        novaListaAdj->noAdjacente = noConecto;
-        novaListaAdj->pesoEntreOsNos = peso;
-        novaListaAdj->proxNoAdj = la;
-        return novaListaAdj;
+        noAdj *novaAresta = (noAdj *)malloc(sizeof(noAdj));
+        novaAresta->noAdjacente = noConecto;
+        novaAresta->pesoEntreOsNos = peso;
+        novaAresta->proxNoAdj = la;
+        grafoAuxLA->adj = novaAresta;
+        return;
     }
     else
         printf("Vertice nao encontrado!");
@@ -135,5 +135,7 @@ void imprimeListaAdjVertAtual(noAdj *la)
         printf("Nenhum vertice localizado!");
     printf("\n");
 }
+
+
 
 //----------------------------------------------------------------------------//

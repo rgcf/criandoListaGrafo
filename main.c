@@ -4,23 +4,21 @@
 
 int main()
 {
-    unsigned int numNos, numAdj, j, i = 1;
+    unsigned int numNos, numAdj, j = 0, i = 0;
     system("clear");
-    printf("Insira o numero total de nos existentes:\n");
+    printf("Insira o numero total de vertices existentes:\n");
     scanf("%d", &numNos);
-    printf("Criando a lista com %d nos...", numNos);
+    printf("Criando a lista com %d vertices...", numNos);
 
     noListaPrincipal *grafoPrincipal, *grafoAux; //Cria os ponteiros para lista principal
     noAdj *listaAdj;                             //cria ponteiros para a lista adjacente
 
     grafoPrincipal = criarListaGrafo();
-
-    grafoPrincipal = inserirNo(grafoPrincipal, 1);
-    printf("No inserido\n");
-    grafoPrincipal = inserirNo(grafoPrincipal, 2);
-    printf("No inserido\n");
-    grafoPrincipal = inserirNo(grafoPrincipal, 3);
-    printf("No inserido\n");
+    while(j < numNos){
+        grafoPrincipal = inserirNo(grafoPrincipal, 1);
+        i++;
+    }
+    printf("\nForam inseridos %d vertices no grafo", i);
     getchar();
     grafoAux = grafoAuxLA = grafoPrincipal;
 
@@ -29,8 +27,13 @@ int main()
     imprimeListaPrincipal(grafoAux);
 
     getchar();
-
-    grafoAuxLA->adj = inserirListaAdj(grafoAux->adj, grafoAux, 1, 2, 1.0);
+    j = 0;
+    while(j<3){
+        inserirListaAdj(grafoAux->adj, grafoAux, 1, 2, (float)j+1.0);
+        j++;
+    }
+    
+   
     printf("No adjacente inserido\n");
 
     getchar();
@@ -40,14 +43,13 @@ int main()
 
     getchar();
 
-    grafoAuxLA = grafoPrincipal;
+   
 
     imprimeListaAdjVertice(3);
     printf("por vertice 3");
 
     getchar();
 
-    grafoAux = grafoAuxLA = grafoPrincipal;
 
     imprimeListaPrincipal(grafoAux);
     printf("Imprimiu grafoAux???");
