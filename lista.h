@@ -39,4 +39,8 @@ void imprimeListaAdjVertice(int vertice);
 
 void imprimeListaAdjVertAtual(noAdj *la);
 
+noListaPrincipal *removeVertice(noListaPrincipal *lp, int vertice);
+
+noAdj *removeAdj(noAdj *la, int verticeAdj);//Tem que criar esse aqui
+
 #endif

@@ -141,14 +141,36 @@ void imprimeListaAdjVertAtual(noAdj *la)
 
 noListaPrincipal *removeVertice(noListaPrincipal *lp, int vertice)
 {
-    noListaPrincipal *aux = buscaVertice(lp, vertice);
-   
-    if (aux) 
-    {
+    noListaPrincipal *aux;//Cria o ponteiro auxiliar para receber o vertice exato
 
+    if (lp->noAtual != vertice) //caso o nó seja diferente do atual
+        aux = buscaVertice(lp, vertice); //recebe o vértice que deve ser retirado
+
+    if ((aux->adj)) //caso seja !NULL vai esvaziar a memória das adjacências 
+    {
+        noAdj *prox, *auxadj = aux->adj; //Cria ponteiro para referencia e exclusão até o final da lista de adjacencia
+        
+        while(auxadj){ //Esvazia da memória os pontos até o final da lista
+            prox = auxadj -> proxNoAdj; //Salva o proximo no
+            free(auxadj); //Esvazia o espaço de memória
+            auxadj = prox; //Recebe o próximo espaço de memória
+        }
     }
-    
+
+    for (lp; lp != NULL; lp = lp->proxNo) //Busca até acha o ponto anterior do vértice q será removido
+        if (lp->proxNo == vertice)
+            return lp; //Retorna o vértice anterior ao que será removido
+
+    lp->proxNo = aux->proxNo; //Substitui o endereço de memória do próximo vértice
+    free(aux); //Limpa a memória do vértice
+    printf("Vertice e adjacencias removidos");
 }
+
+noAdj *removeAdj(noAdj *la, int verticeAdj)
+{
+    return;
+}
+
 
 
 //----------------------------------------------------------------------------//
