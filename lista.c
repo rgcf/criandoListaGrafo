@@ -173,4 +173,8 @@ noAdj *removeAdj(noAdj *la, int verticeAdj)
 
 
 
+//Iniciar a leitura de arquivo de grafo
+
+
+
 //----------------------------------------------------------------------------//
