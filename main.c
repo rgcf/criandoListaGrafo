@@ -14,14 +14,15 @@ int main()
     noAdj *listaAdj;                             //cria ponteiros para a lista adjacente
 
     grafoPrincipal = criarListaGrafo();
+    grafoPrincipal -> numLigacoes = 0;
 
-    while(j <= numNos){
+    while (j <= numNos)
+    {
         grafoPrincipal = inserirNo(grafoPrincipal, j);
         printf("\nForam inseridos %d vertices no grafo", j);
         j++;
-
     }
-    
+
     getchar();
     grafoAux = grafoAuxLA = grafoPrincipal;
 
@@ -34,10 +35,10 @@ int main()
     srand(numNos);
     while (i < numNos)
     {
-        j=0;
+        j = 0;
         while (j < 3)
         {
-            grafoAux->adj = inserirListaAdj(grafoAuxLA, i, (1 + rand())%numNos, (float)(j + numNos * 2)); 
+            grafoAux->adj = inserirListaAdj(grafoAuxLA, i, (1 + rand()) % numNos, (float)(j + numNos * 2));
             printf("No adjacente inserido %d %d %f\n", grafoAux->noAtual, grafoAux->adj->noAdjacente, grafoAux->adj->pesoEntreOsNos);
             getchar();
             j++;
@@ -49,10 +50,6 @@ int main()
     }
 
     getchar();
-
-
-
-    
 
     return 0;
 }
