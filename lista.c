@@ -50,6 +50,7 @@ noAdj *inserirListaAdj(noListaPrincipal *lp, int noBase, int noConecto, float pe
         novaAresta->noAdjacente = noConecto;
         novaAresta->pesoEntreOsNos = peso;
         novaAresta->proxNoAdj = grafoAuxLA->adj;
+        lp->numLigacoes++;
         return novaAresta;
 
     }

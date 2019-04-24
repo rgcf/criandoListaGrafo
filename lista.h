@@ -14,6 +14,7 @@ typedef struct noAdj
 typedef struct noListaPrincipal 
 {	
 	int noAtual;
+	int numLigacoes;
 	struct noListaPrincipal *proxNo; //ponteiro para o próximo nó da lista 
 	struct noAdj *adj; //lista de nós adjacentes  
 }noListaPrincipal;
