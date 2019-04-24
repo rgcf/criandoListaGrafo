@@ -166,8 +166,26 @@ noListaPrincipal *removeVertice(noListaPrincipal *lp, int vertice)
     printf("Vertice e adjacencias removidos");
 }
 
-noAdj *removeAdj(noAdj *la, int verticeAdj)
+noAdj *removeAdj(noAdj *la, int verticeAdj)//Tem q terminar de ser feito e testado
 {
+    int i;
+    noAdj *auxadj;
+    if (!(la -> proxNoAdj) && (la -> noAdjacente == verticeAdj)) {
+        free(la);
+        la = NULL;
+        return la;
+    }
+    while(la){
+        if(la -> noAdjacente == verticeAdj)
+        {
+            auxadj = la->proxNoAdj;
+            free(la);
+            return auxadj;
+        }
+        else
+            la = la ->proxNoAdj; 
+    }
+    
     return;
 }
 
